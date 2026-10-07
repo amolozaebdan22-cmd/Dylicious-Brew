@@ -1,0 +1,2996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#17120f">
+
+<title>Dylicious Brew | Where Coffee Matters</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#17120f;
+    color:#f5ead8;
+    line-height:1.5;
+}
+
+button,input,select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+/* ================= NAV ================= */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(25,17,12,.98);
+    border-bottom:1px solid #594332;
+    padding:15px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+    color:#f1d09d;
+    cursor:pointer;
+    user-select:none;
+}
+
+.logo span{
+    color:#b98045;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:22px;
+}
+
+.nav-links a{
+    color:#f5ead8;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.nav-links a:hover{
+    color:#d3a365;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:75vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:50px 20px;
+    background:
+        linear-gradient(rgba(20,13,9,.72),rgba(20,13,9,.92)),
+        radial-gradient(circle at center top,#8b592e,#17120f 65%);
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.hero h1{
+    font-size:clamp(50px,10vw,105px);
+    font-weight:900;
+    letter-spacing:-5px;
+    line-height:1;
+}
+
+.hero h1 span{
+    color:#c99558;
+}
+
+.tagline{
+    margin:18px 0 30px;
+    color:#d9c09d;
+    font-size:18px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+}
+
+.hero-button{
+    display:inline-block;
+    padding:14px 30px;
+    background:#c99558;
+    color:#1b120c;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:900;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+    max-width:1200px;
+    margin:auto;
+    padding:75px 6%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    font-size:40px;
+    color:#d5a96f;
+}
+
+.section-title p{
+    color:#aa9a88;
+    margin-top:5px;
+}
+
+/* ================= ABOUT ================= */
+
+.about-container{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.about-card{
+    background:#241a14;
+    border:1px solid #4b3828;
+    border-radius:20px;
+    padding:30px;
+}
+
+.about-card h3{
+    color:#dfb477;
+    margin-bottom:12px;
+}
+
+.about-card p{
+    color:#c5b7a6;
+}
+
+/* ================= MENU TOOLS ================= */
+
+.menu-tools{
+    display:flex;
+    gap:12px;
+    max-width:900px;
+    margin:-10px auto 35px;
+    flex-wrap:wrap;
+}
+
+.menu-tools input,
+.menu-tools select{
+    background:#241a14;
+    color:#f5ead8;
+    border:1px solid #594332;
+    border-radius:12px;
+    padding:13px 15px;
+    outline:none;
+}
+
+.menu-tools input{
+    flex:1;
+    min-width:250px;
+}
+
+/* ================= MENU ================= */
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(310px,1fr));
+    gap:22px;
+}
+
+.menu-card{
+    background:#211712;
+    border:1px solid #4d3828;
+    border-radius:20px;
+    padding:22px;
+    transition:.2s;
+}
+
+.menu-card:hover{
+    border-color:#a87543;
+}
+
+.menu-card h3{
+    color:#e0b273;
+    font-size:26px;
+    padding-bottom:12px;
+    margin-bottom:8px;
+    border-bottom:1px solid #4d3828;
+}
+
+.sizes{
+    color:#8e7d6a;
+    font-size:12px;
+    margin-bottom:5px;
+}
+
+.menu-item{
+    padding:13px 0;
+    border-bottom:1px dashed #463426;
+}
+
+.menu-item:last-child{
+    border-bottom:none;
+}
+
+.item-top{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    align-items:center;
+}
+
+.item-name{
+    color:#eee0ca;
+    font-weight:bold;
+}
+
+.best{
+    color:#f2d08c;
+}
+
+.price{
+    color:#d8ac70;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+.item-actions{
+    display:flex;
+    gap:8px;
+    margin-top:10px;
+}
+
+.size-select{
+    flex:1;
+    background:#2a1d15;
+    color:#f5ead8;
+    border:1px solid #594332;
+    border-radius:9px;
+    padding:9px;
+}
+
+.add-btn{
+    background:#c99558;
+    color:#1b120c;
+    border:0;
+    border-radius:9px;
+    padding:9px 14px;
+    font-weight:900;
+}
+
+.add-btn:hover{
+    background:#e0b77f;
+}
+
+/* ================= BEST SELLER ================= */
+
+.best-seller{
+    margin-top:45px;
+    background:linear-gradient(135deg,#382517,#211711);
+    border:1px solid #72502f;
+    border-radius:25px;
+    padding:35px;
+    text-align:center;
+}
+
+.best-seller h2{
+    color:#e4b979;
+    margin-bottom:8px;
+}
+
+.best-seller p{
+    color:#c7b39b;
+}
+
+/* ================= CONTACT ================= */
+
+#contact{
+    max-width:none;
+    background:#211711;
+    border-top:1px solid #453224;
+    border-bottom:1px solid #453224;
+}
+
+.contact-container{
+    max-width:1000px;
+    margin:auto;
+}
+
+.contact-info{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.contact-box{
+    background:#2a1e16;
+    border:1px solid #4d3928;
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+}
+
+.contact-box h3{
+    color:#d8a96c;
+    margin-bottom:8px;
+}
+
+.contact-box p{
+    color:#bcae9d;
+}
+
+/* ================= FLOATING CART ================= */
+
+.app-bar{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:1500;
+}
+
+.cart-button{
+    border:1px solid #72502f;
+    background:#c99558;
+    color:#1b120c;
+    padding:14px 20px;
+    border-radius:999px;
+    font-weight:900;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+.cart-button span{
+    background:#1b120c;
+    color:#fff;
+    padding:3px 8px;
+    border-radius:999px;
+    margin-left:5px;
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:3000;
+    padding:15px;
+}
+
+.modal.open{
+    display:flex;
+}
+
+.panel{
+    width:min(650px,100%);
+    max-height:90vh;
+    overflow:auto;
+    background:#211712;
+    border:1px solid #72502f;
+    border-radius:22px;
+    padding:25px;
+    box-shadow:0 25px 80px rgba(0,0,0,.6);
+}
+
+.modal-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.modal-head h2{
+    color:#e4b979;
+}
+
+.close{
+    background:none;
+    border:0;
+    color:#d9c09d;
+    font-size:30px;
+}
+
+/* ================= CART ================= */
+
+.cart-row{
+    display:grid;
+    grid-template-columns:1fr auto auto;
+    gap:12px;
+    align-items:center;
+    padding:14px 0;
+    border-bottom:1px dashed #463426;
+}
+
+.cart-info strong{
+    color:#f1d09d;
+}
+
+.cart-info small{
+    color:#a99580;
+}
+
+.qty{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.qty button{
+    width:30px;
+    height:30px;
+    border:1px solid #594332;
+    border-radius:7px;
+    background:#382517;
+    color:#fff;
+}
+
+.remove{
+    border:0;
+    background:none;
+    color:#c77b63;
+    font-size:12px;
+}
+
+.line-total{
+    color:#d8ac70;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+.total-row{
+    display:flex;
+    justify-content:space-between;
+    color:#f1d09d;
+    font-size:21px;
+    font-weight:900;
+    margin:22px 0;
+}
+
+.primary{
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:12px;
+    background:#c99558;
+    color:#1b120c;
+    font-weight:900;
+}
+
+/* ================= CHECKOUT ================= */
+
+.checkout-box{
+    margin-top:20px;
+    padding:20px;
+    background:#2a1e16;
+    border:1px solid #594332;
+    border-radius:15px;
+}
+
+.checkout-box h3{
+    color:#e0b273;
+    margin-bottom:15px;
+}
+
+.form-group{
+    margin-bottom:14px;
+}
+
+.form-group label{
+    display:block;
+    color:#cbb69e;
+    font-size:14px;
+    margin-bottom:6px;
+}
+
+.form-group input{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #594332;
+    background:#1b130f;
+    color:#fff;
+    outline:none;
+}
+
+.form-group input:focus{
+    border-color:#c99558;
+}
+
+.change-preview{
+    margin-top:15px;
+    padding:15px;
+    background:#382517;
+    border-radius:10px;
+    display:flex;
+    justify-content:space-between;
+    font-weight:bold;
+}
+
+.change-preview span:last-child{
+    color:#e4b979;
+}
+
+.cash-warning{
+    color:#df806c;
+    font-size:13px;
+    margin-top:7px;
+    display:none;
+}
+
+.cash-warning.show{
+    display:block;
+}
+
+.checkout-total{
+    display:flex;
+    justify-content:space-between;
+    margin-top:15px;
+    color:#f1d09d;
+    font-size:20px;
+    font-weight:900;
+}
+
+/* ================= RECEIPT ================= */
+
+.receipt{
+    background:#f5ead8;
+    color:#211712;
+    border-radius:12px;
+    padding:22px;
+}
+
+.receipt h2{
+    text-align:center;
+    margin-bottom:5px;
+}
+
+.receipt .shop{
+    text-align:center;
+    color:#735132;
+    margin-bottom:15px;
+}
+
+.customer-box{
+    background:#ead9c0;
+    border-radius:10px;
+    padding:12px;
+    margin-bottom:15px;
+}
+
+.receipt-line{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    padding:8px 0;
+    border-bottom:1px dashed #9b8269;
+}
+
+.receipt-total{
+    display:flex;
+    justify-content:space-between;
+    font-size:20px;
+    font-weight:900;
+    padding-top:15px;
+}
+
+.receipt-payment{
+    margin-top:15px;
+    padding-top:10px;
+    border-top:1px solid #9b8269;
+}
+
+.receipt-payment div{
+    display:flex;
+    justify-content:space-between;
+    padding:5px 0;
+}
+
+.receipt-change{
+    font-size:20px;
+    font-weight:900;
+}
+
+.receipt-actions{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.receipt-actions button{
+    flex:1;
+    padding:12px;
+    border:0;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.print-btn{
+    background:#c99558;
+}
+
+.done-btn{
+    background:#382517;
+    color:#fff;
+}
+
+/* ================= ADMIN ================= */
+
+.admin-summary{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.stat{
+    background:#2a1e16;
+    border:1px solid #594332;
+    border-radius:15px;
+    padding:18px;
+}
+
+.stat small{
+    color:#aa9a88;
+}
+
+.stat strong{
+    display:block;
+    font-size:25px;
+    color:#e0b273;
+    margin-top:5px;
+}
+
+.order-card{
+    background:#2a1e16;
+    border:1px solid #4d3928;
+    border-radius:15px;
+    padding:18px;
+    margin-bottom:12px;
+}
+
+.order-head{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    color:#e4b979;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.customer-admin{
+    background:#382517;
+    padding:10px;
+    border-radius:9px;
+    margin-bottom:10px;
+    color:#e5c79d;
+}
+
+.order-item{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    padding:5px 0;
+    color:#d4c2ad;
+}
+
+.order-total{
+    border-top:1px solid #594332;
+    margin-top:10px;
+    padding-top:10px;
+    display:flex;
+    justify-content:space-between;
+    color:#f1d09d;
+    font-weight:900;
+}
+
+.payment-admin{
+    border-top:1px dashed #594332;
+    margin-top:10px;
+    padding-top:10px;
+    color:#bfa991;
+}
+
+.payment-admin div{
+    display:flex;
+    justify-content:space-between;
+    padding:3px 0;
+}
+
+.payment-admin strong{
+    color:#e4b979;
+}
+
+.empty{
+    text-align:center;
+    color:#aa9a88;
+    padding:30px;
+}
+
+/* ================= TOAST ================= */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:translate(-50%,20px);
+    background:#f1d09d;
+    color:#1b120c;
+    padding:12px 18px;
+    border-radius:12px;
+    opacity:0;
+    pointer-events:none;
+    transition:.25s;
+    z-index:5000;
+    font-weight:bold;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translate(-50%,0);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    text-align:center;
+    padding:30px 20px;
+    background:#130f0c;
+    color:#8d7c6a;
+    font-size:14px;
+}
+
+footer strong{
+    color:#c79558;
+}
+
+/* ================= TABLET ================= */
+
+@media(max-width:900px){
+
+    .about-container{
+        grid-template-columns:1fr;
+    }
+
+    .contact-info{
+        grid-template-columns:1fr;
+    }
+
+    .menu-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+/* ================= PHONE ================= */
+
+@media(max-width:650px){
+
+    nav{
+        flex-direction:column;
+        padding:13px 15px;
+    }
+
+    .nav-links{
+        gap:13px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .nav-links a{
+        font-size:13px;
+    }
+
+    .hero{
+        min-height:65vh;
+    }
+
+    .hero h1{
+        letter-spacing:-3px;
+    }
+
+    .tagline{
+        font-size:13px;
+        letter-spacing:2px;
+    }
+
+    section{
+        padding:55px 15px;
+    }
+
+    .section-title h2{
+        font-size:31px;
+    }
+
+    .menu-grid{
+        grid-template-columns:1fr;
+    }
+
+    .menu-tools{
+        flex-direction:column;
+    }
+
+    .menu-tools input{
+        min-width:100%;
+    }
+
+    .item-top{
+        align-items:flex-start;
+        flex-direction:column;
+        gap:3px;
+    }
+
+    .item-actions{
+        flex-direction:column;
+    }
+
+    .cart-row{
+        grid-template-columns:1fr auto;
+    }
+
+    .line-total{
+        grid-column:2;
+    }
+
+    .admin-summary{
+        grid-template-columns:1fr;
+    }
+
+    .receipt-actions{
+        flex-direction:column;
+    }
+
+    .checkout-total{
+        font-size:18px;
+    }
+}
+
+/* ================= PRINT ================= */
+
+@media print{
+
+    body *{
+        visibility:hidden;
+    }
+
+    #receiptModal,
+    #receiptModal *{
+        visibility:visible;
+    }
+
+    #receiptModal{
+        position:absolute;
+        inset:0;
+        background:#fff;
+    }
+
+    .receipt-actions{
+        display:none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAV ================= -->
+
+<nav>
+
+    <div class="logo">
+        dylicious <span>brew.</span>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+</nav>
+
+<!-- ================= HERO ================= -->
+
+<header class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>
+            dylicious <span>brew.</span>
+        </h1>
+
+        <p class="tagline">
+            where coffee matters
+        </p>
+
+        <a href="#menu" class="hero-button">
+            Order Now
+        </a>
+
+    </div>
+
+</header>
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+    <div class="section-title">
+
+        <h2>
+            Welcome to Dylicious Brew
+        </h2>
+
+        <p>
+            A cozy place for coffee, matcha, and sweet moments.
+        </p>
+
+    </div>
+
+    <div class="about-container">
+
+        <div class="about-card">
+
+            <h3>
+                ☕ Where Coffee Matters
+            </h3>
+
+            <p>
+                Dylicious Brew serves handcrafted coffee,
+                refreshing fruit teas, creamy non-coffee drinks,
+                premium lattes, and delicious frappes.
+            </p>
+
+        </div>
+
+        <div class="about-card">
+
+            <h3>
+                ⭐ Our Best Sellers
+            </h3>
+
+            <p>
+                Try our Spanish Latte, Matcha, Biscoff,
+                Vanilla Oreo, and Lychee drinks.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= MENU ================= -->
+
+<section id="menu">
+
+    <div class="section-title">
+
+        <h2>
+            Our Menu
+        </h2>
+
+        <p>
+            Select your drink and size.
+        </p>
+
+    </div>
+
+    <div class="menu-tools">
+
+        <input
+            id="menuSearch"
+            type="search"
+            placeholder="🔎 Search drinks..."
+        >
+
+        <select id="categoryFilter">
+
+            <option value="all">
+                All Categories
+            </option>
+
+            <option value="Iced Coffee">
+                Iced Coffee
+            </option>
+
+            <option value="Non Coffee">
+                Non Coffee
+            </option>
+
+            <option value="Hot Coffee">
+                Hot Coffee
+            </option>
+
+            <option value="Fruit Tea">
+                Fruit Tea
+            </option>
+
+            <option value="Premium">
+                Premium
+            </option>
+
+            <option value="Frappe">
+                Frappe
+            </option>
+
+        </select>
+
+    </div>
+
+    <div
+        class="menu-grid"
+        id="menuGrid"
+    ></div>
+
+    <div class="best-seller">
+
+        <h2>
+            ★ TRY OUR BEST SELLER! ★
+        </h2>
+
+        <p>
+            Spanish Latte • Matcha • Biscoff • Vanilla Oreo • Lychee
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+    <div class="contact-container">
+
+        <div class="section-title">
+
+            <h2>
+                Visit Dylicious Brew
+            </h2>
+
+            <p>
+                Grab a drink and make your day dylicious.
+            </p>
+
+        </div>
+
+        <div class="contact-info">
+
+            <div class="contact-box">
+
+                <h3>
+                    📍 Location
+                </h3>
+
+                <p>
+                    Add coffee shop address here
+                </p>
+
+            </div>
+
+            <div class="contact-box">
+
+                <h3>
+                    📱 Social Media
+                </h3>
+
+                <p>
+                    Facebook / Instagram
+                </p>
+
+            </div>
+
+            <div class="contact-box">
+
+                <h3>
+                    🕐 Opening Hours
+                </h3>
+
+                <p>
+                    Add opening hours here
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        ★ TRY OUR BEST SELLER! ★
+    </p>
+
+    <p>
+        © 2026 <strong>Dylicious Brew</strong>.
+        Where Coffee Matters.
+    </p>
+
+</footer>
+
+<!-- ================= CART BUTTON ================= -->
+
+<div class="app-bar">
+
+    <button
+        class="cart-button"
+        id="cartButton"
+    >
+        🛒 Order
+        <span id="cartCount">0</span>
+    </button>
+
+</div>
+
+<!-- ================= CART MODAL ================= -->
+
+<div
+    class="modal"
+    id="cartModal"
+>
+
+    <div class="panel">
+
+        <div class="modal-head">
+
+            <h2>
+                Your Order
+            </h2>
+
+            <button
+                class="close"
+                id="closeCart"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div id="cartItems"></div>
+
+        <div class="total-row">
+
+            <span>
+                Total
+            </span>
+
+            <span id="cartTotal">
+                ₱0.00
+            </span>
+
+        </div>
+
+        <!-- CHECKOUT -->
+
+        <div class="checkout-box">
+
+            <h3>
+                💳 Customer Payment
+            </h3>
+
+            <div class="form-group">
+
+                <label for="customerName">
+                    Customer Name
+                </label>
+
+                <input
+                    id="customerName"
+                    type="text"
+                    placeholder="Enter customer name"
+                    autocomplete="off"
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="cashReceived">
+                    Cash Received
+                </label>
+
+                <input
+                    id="cashReceived"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    placeholder="₱0.00"
+                    inputmode="decimal"
+                >
+
+                <div
+                    class="cash-warning"
+                    id="cashWarning"
+                >
+                    ⚠️ Kulang ang cash ng customer.
+                </div>
+
+            </div>
+
+            <div class="change-preview">
+
+                <span>
+                    Sukli
+                </span>
+
+                <span id="changeAmount">
+                    ₱0.00
+                </span>
+
+            </div>
+
+        </div>
+
+        <button
+            class="primary"
+            id="placeOrder"
+            style="margin-top:20px;"
+        >
+            Place Order
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ================= RECEIPT MODAL ================= -->
+
+<div
+    class="modal"
+    id="receiptModal"
+>
+
+    <div class="panel">
+
+        <div class="modal-head">
+
+            <h2>
+                Order Complete
+            </h2>
+
+            <button
+                class="close"
+                id="closeReceipt"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div id="receiptContent"></div>
+
+    </div>
+
+</div>
+
+<!-- ================= ADMIN MODAL ================= -->
+
+<div
+    class="modal"
+    id="adminModal"
+>
+
+    <div class="panel">
+
+        <div class="modal-head">
+
+            <h2>
+                📊 Sales Dashboard
+            </h2>
+
+            <button
+                class="close"
+                id="closeAdmin"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div class="admin-summary">
+
+            <div class="stat">
+
+                <small>
+                    Total Orders
+                </small>
+
+                <strong id="totalOrders">
+                    0
+                </strong>
+
+            </div>
+
+            <div class="stat">
+
+                <small>
+                    Total Sales
+                </small>
+
+                <strong id="totalSales">
+                    ₱0.00
+                </strong>
+
+            </div>
+
+            <div class="stat">
+
+                <small>
+                    Items Sold
+                </small>
+
+                <strong id="itemsSold">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+        <button
+            class="primary"
+            id="clearSales"
+            style="
+                margin-bottom:20px;
+                background:#8f4f3e;
+                color:#fff;
+            "
+        >
+            Clear Sales History
+        </button>
+
+        <div id="ordersList"></div>
+
+    </div>
+
+</div>
+
+<!-- ================= TOAST ================= -->
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+<script>
+
+/* =========================================================
+   MENU
+   ========================================================= */
+
+const menu = [
+
+/* ICED COFFEE */
+
+{
+    category:"Iced Coffee",
+    name:"Mocha Caramel",
+    best:false,
+    sizes:{S:90,M:100,L:110}
+},
+
+{
+    category:"Iced Coffee",
+    name:"Salted Spanish Latte",
+    best:true,
+    sizes:{S:85,M:95,L:105}
+},
+
+{
+    category:"Iced Coffee",
+    name:"Matcha Espresso",
+    best:false,
+    sizes:{S:85,M:95,L:105}
+},
+
+{
+    category:"Iced Coffee",
+    name:"Caramel Macchiato",
+    best:true,
+    sizes:{S:80,M:90,L:100}
+},
+
+{
+    category:"Iced Coffee",
+    name:"Iced Caramel",
+    best:false,
+    sizes:{S:80,M:90,L:100}
+},
+
+{
+    category:"Iced Coffee",
+    name:"Dark White Mocha",
+    best:false,
+    sizes:{S:80,M:90,L:100}
+},
+
+{
+    category:"Iced Coffee",
+    name:"Dark Mocha",
+    best:false,
+    sizes:{S:80,M:90,L:100}
+},
+
+{
+    category:"Iced Coffee",
+    name:"White Mocha",
+    best:false,
+    sizes:{S:80,M:90,L:100}
+},
+
+{
+    category:"Iced Coffee",
+    name:"Spanish Latte",
+    best:true,
+    sizes:{S:80,M:90,L:100}
+},
+
+{
+    category:"Iced Coffee",
+    name:"French Vanilla",
+    best:true,
+    sizes:{S:75,M:85,L:95}
+},
+
+{
+    category:"Iced Coffee",
+    name:"Caramel Latte",
+    best:false,
+    sizes:{S:75,M:85,L:95}
+},
+
+{
+    category:"Iced Coffee",
+    name:"Vanilla Latte",
+    best:false,
+    sizes:{S:75,M:85,L:95}
+},
+
+{
+    category:"Iced Coffee",
+    name:"Cafe Latte",
+    best:false,
+    sizes:{S:70,M:80,L:90}
+},
+
+{
+    category:"Iced Coffee",
+    name:"Cappuccino",
+    best:false,
+    sizes:{S:70,M:80,L:90}
+},
+
+{
+    category:"Iced Coffee",
+    name:"Americano",
+    best:false,
+    sizes:{S:55,M:65,L:80}
+},
+
+/* NON COFFEE */
+
+{
+    category:"Non Coffee",
+    name:"Vanilla Oreo Milk",
+    best:true,
+    sizes:{S:85,M:95,L:105}
+},
+
+{
+    category:"Non Coffee",
+    name:"Matchaberry Milk",
+    best:false,
+    sizes:{S:80,M:95,L:105}
+},
+
+{
+    category:"Non Coffee",
+    name:"Matchachocolate",
+    best:false,
+    sizes:{S:80,M:90,L:100}
+},
+
+{
+    category:"Non Coffee",
+    name:"Dark White Milk",
+    best:false,
+    sizes:{S:75,M:85,L:95}
+},
+
+{
+    category:"Non Coffee",
+    name:"Dark Choco Milk",
+    best:true,
+    sizes:{S:75,M:85,L:95}
+},
+
+{
+    category:"Non Coffee",
+    name:"White Choco Milk",
+    best:false,
+    sizes:{S:75,M:85,L:95}
+},
+
+{
+    category:"Non Coffee",
+    name:"Chocoberry Milk",
+    best:false,
+    sizes:{S:75,M:85,L:95}
+},
+
+{
+    category:"Non Coffee",
+    name:"Whiteberry Milk",
+    best:false,
+    sizes:{S:75,M:85,L:95}
+},
+
+{
+    category:"Non Coffee",
+    name:"Strawberry Milk",
+    best:false,
+    sizes:{S:75,M:85,L:95}
+},
+
+{
+    category:"Non Coffee",
+    name:"Matcha Milk",
+    best:true,
+    sizes:{S:75,M:85,L:95}
+},
+
+{
+    category:"Non Coffee",
+    name:"Vanilla",
+    best:false,
+    sizes:{S:65,M:75,L:85}
+},
+
+/* HOT COFFEE */
+
+{
+    category:"Hot Coffee",
+    name:"Salted Caramel",
+    best:false,
+    sizes:{S:85,M:100}
+},
+
+{
+    category:"Hot Coffee",
+    name:"Spanish Latte",
+    best:true,
+    sizes:{S:85,M:100}
+},
+
+{
+    category:"Hot Coffee",
+    name:"Cappuccino",
+    best:false,
+    sizes:{S:85,M:100}
+},
+
+{
+    category:"Hot Coffee",
+    name:"Macchiato",
+    best:false,
+    sizes:{S:85,M:100}
+},
+
+{
+    category:"Hot Coffee",
+    name:"Matcha",
+    best:true,
+    sizes:{S:85,M:100}
+},
+
+{
+    category:"Hot Coffee",
+    name:"Mocha",
+    best:false,
+    sizes:{S:85,M:100}
+},
+
+{
+    category:"Hot Coffee",
+    name:"Latte",
+    best:false,
+    sizes:{S:85,M:100}
+},
+
+{
+    category:"Hot Coffee",
+    name:"Americano",
+    best:false,
+    sizes:{S:75,M:90}
+},
+
+/* FRUIT TEA */
+
+{
+    category:"Fruit Tea",
+    name:"Green Apple",
+    best:true,
+    sizes:{S:55,M:65,L:75}
+},
+
+{
+    category:"Fruit Tea",
+    name:"Strawberry",
+    best:false,
+    sizes:{S:55,M:65,L:75}
+},
+
+{
+    category:"Fruit Tea",
+    name:"Mix Berries",
+    best:false,
+    sizes:{S:55,M:65,L:75}
+},
+
+{
+    category:"Fruit Tea",
+    name:"Lychee",
+    best:true,
+    sizes:{S:55,M:65,L:75}
+},
+
+/* PREMIUM */
+
+{
+    category:"Premium",
+    name:"Biscoff Latte",
+    best:false,
+    sizes:{S:125,M:135,L:145}
+},
+
+{
+    category:"Premium",
+    name:"Barista's Drink",
+    best:true,
+    sizes:{S:110,M:120,L:130}
+},
+
+{
+    category:"Premium",
+    name:"Salted Creme Latte",
+    best:false,
+    sizes:{S:110,M:120,L:130}
+},
+
+{
+    category:"Premium",
+    name:"Sea Salt Latte",
+    best:false,
+    sizes:{S:95,M:110,L:120}
+},
+
+{
+    category:"Premium",
+    name:"Es-Yen",
+    best:true,
+    sizes:{S:90,M:105,L:115}
+},
+
+{
+    category:"Premium",
+    name:"Cinnamon Latte",
+    best:false,
+    sizes:{S:90,M:100,L:110}
+},
+
+{
+    category:"Premium",
+    name:"Oreo Latte",
+    best:false,
+    sizes:{S:90,M:100,L:110}
+},
+
+/* FRAPPE */
+
+{
+    category:"Frappe",
+    name:"Biscoff",
+    best:true,
+    sizes:{S:160,M:175}
+},
+
+{
+    category:"Frappe",
+    name:"Vanilla Oreo",
+    best:true,
+    sizes:{S:155,M:170}
+},
+
+{
+    category:"Frappe",
+    name:"Dark Choco",
+    best:false,
+    sizes:{S:150,M:165}
+},
+
+{
+    category:"Frappe",
+    name:"White Choco",
+    best:false,
+    sizes:{S:150,M:165}
+},
+
+{
+    category:"Frappe",
+    name:"Strawberry",
+    best:false,
+    sizes:{S:145,M:160}
+},
+
+{
+    category:"Frappe",
+    name:"Matcha",
+    best:true,
+    sizes:{S:145,M:160}
+},
+
+{
+    category:"Frappe",
+    name:"Dark Caramel Mocha",
+    best:false,
+    sizes:{S:145,M:160}
+}
+
+];
+
+/* =========================================================
+   STATE
+   ========================================================= */
+
+let cart = {};
+
+let orders = JSON.parse(
+    localStorage.getItem("dylicious_orders") || "[]"
+);
+
+/* =========================================================
+   ELEMENTS
+   ========================================================= */
+
+const menuGrid =
+    document.getElementById("menuGrid");
+
+const searchInput =
+    document.getElementById("menuSearch");
+
+const categoryFilter =
+    document.getElementById("categoryFilter");
+
+const cartModal =
+    document.getElementById("cartModal");
+
+const receiptModal =
+    document.getElementById("receiptModal");
+
+const adminModal =
+    document.getElementById("adminModal");
+
+const cartItems =
+    document.getElementById("cartItems");
+
+const cartCount =
+    document.getElementById("cartCount");
+
+const cartTotal =
+    document.getElementById("cartTotal");
+
+const customerNameInput =
+    document.getElementById("customerName");
+
+const cashReceivedInput =
+    document.getElementById("cashReceived");
+
+const changeAmount =
+    document.getElementById("changeAmount");
+
+const cashWarning =
+    document.getElementById("cashWarning");
+
+const toast =
+    document.getElementById("toast");
+
+/* =========================================================
+   MONEY
+   ========================================================= */
+
+function money(value){
+
+    return "₱" +
+        Number(value).toLocaleString(
+            "en-PH",
+            {
+                minimumFractionDigits:2,
+                maximumFractionDigits:2
+            }
+        );
+}
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+function showToast(message){
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    clearTimeout(window.toastTimer);
+
+    window.toastTimer = setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    },1600);
+}
+
+/* =========================================================
+   RENDER MENU
+   ========================================================= */
+
+function renderMenu(){
+
+    const term =
+        searchInput.value
+        .toLowerCase()
+        .trim();
+
+    const category =
+        categoryFilter.value;
+
+    const filtered =
+        menu.filter(item => {
+
+            const searchMatch =
+                item.name
+                .toLowerCase()
+                .includes(term);
+
+            const categoryMatch =
+                category === "all" ||
+                item.category === category;
+
+            return searchMatch &&
+                   categoryMatch;
+        });
+
+    const grouped = {};
+
+    filtered.forEach(item => {
+
+        if(!grouped[item.category]){
+            grouped[item.category] = [];
+        }
+
+        grouped[item.category].push(item);
+    });
+
+    menuGrid.innerHTML = "";
+
+    Object.keys(grouped).forEach(categoryName => {
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "menu-card";
+
+        card.innerHTML = `
+
+            <h3>
+                ${categoryName}
+            </h3>
+
+            <div class="sizes">
+                ${Object.keys(
+                    grouped[categoryName][0].sizes
+                ).join(" • ")}
+            </div>
+
+        `;
+
+        grouped[categoryName].forEach(item => {
+
+            const row =
+                document.createElement("div");
+
+            row.className =
+                "menu-item";
+
+            const sizeOptions =
+                Object.entries(item.sizes)
+                .map(([size,price]) => `
+
+                    <option value="${size}">
+                        ${size} — ${money(price)}
+                    </option>
+
+                `)
+                .join("");
+
+            row.innerHTML = `
+
+                <div class="item-top">
+
+                    <span
+                        class="item-name ${item.best ? "best":""}"
+                    >
+                        ${item.best ? "★ ":""}
+                        ${item.name}
+                    </span>
+
+                    <span class="price">
+                        ${money(
+                            Object.values(
+                                item.sizes
+                            )[0]
+                        )}+
+                    </span>
+
+                </div>
+
+                <div class="item-actions">
+
+                    <select class="size-select">
+                        ${sizeOptions}
+                    </select>
+
+                    <button
+                        class="add-btn"
+                        type="button"
+                    >
+                        Add
+                    </button>
+
+                </div>
+
+            `;
+
+            row
+            .querySelector(".add-btn")
+            .addEventListener(
+                "click",
+                () => {
+
+                    const size =
+                        row
+                        .querySelector(
+                            ".size-select"
+                        )
+                        .value;
+
+                    addToCart(
+                        item,
+                        size
+                    );
+                }
+            );
+
+            card.appendChild(row);
+
+        });
+
+        menuGrid.appendChild(card);
+
+    });
+
+    if(!filtered.length){
+
+        menuGrid.innerHTML = `
+
+            <div
+                class="empty"
+                style="grid-column:1/-1"
+            >
+                No drinks found.
+            </div>
+
+        `;
+    }
+}
+
+/* =========================================================
+   CART
+   ========================================================= */
+
+function cartKey(name,size){
+
+    return name + "_" + size;
+}
+
+function addToCart(item,size){
+
+    const key =
+        cartKey(
+            item.name,
+            size
+        );
+
+    const price =
+        item.sizes[size];
+
+    if(!cart[key]){
+
+        cart[key] = {
+
+            key,
+
+            name:item.name,
+
+            category:item.category,
+
+            size,
+
+            price,
+
+            qty:0
+
+        };
+    }
+
+    cart[key].qty++;
+
+    renderCart();
+
+    showToast(
+        `${item.name} (${size}) added`
+    );
+}
+
+function changeQty(key,delta){
+
+    if(!cart[key]) return;
+
+    cart[key].qty += delta;
+
+    if(cart[key].qty <= 0){
+
+        delete cart[key];
+
+    }
+
+    renderCart();
+}
+
+function removeItem(key){
+
+    delete cart[key];
+
+    renderCart();
+}
+
+function getCartItems(){
+
+    return Object.values(cart);
+}
+
+function getCartTotal(){
+
+    return getCartItems().reduce(
+        (total,item) =>
+            total +
+            item.price *
+            item.qty,
+        0
+    );
+}
+
+function renderCart(){
+
+    const items =
+        getCartItems();
+
+    if(!items.length){
+
+        cartItems.innerHTML = `
+
+            <div class="empty">
+
+                Your order is empty.<br>
+
+                Add a drink from the menu.
+
+            </div>
+
+        `;
+
+    }else{
+
+        cartItems.innerHTML =
+            items.map(item => `
+
+                <div class="cart-row">
+
+                    <div class="cart-info">
+
+                        <strong>
+                            ${item.name}
+                        </strong>
+
+                        <br>
+
+                        <small>
+                            ${item.category}
+                            • Size ${item.size}
+                            • ${money(item.price)} each
+                        </small>
+
+                        <br>
+
+                        <button
+                            class="remove"
+                            onclick="removeItem('${escapeKey(item.key)}')"
+                        >
+                            Remove
+                        </button>
+
+                    </div>
+
+                    <div class="qty">
+
+                        <button
+                            onclick="changeQty('${escapeKey(item.key)}',-1)"
+                        >
+                            −
+                        </button>
+
+                        <strong>
+                            ${item.qty}
+                        </strong>
+
+                        <button
+                            onclick="changeQty('${escapeKey(item.key)}',1)"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+                    <div class="line-total">
+                        ${money(
+                            item.price *
+                            item.qty
+                        )}
+                    </div>
+
+                </div>
+
+            `).join("");
+
+    }
+
+    const count =
+        items.reduce(
+            (sum,item) =>
+                sum + item.qty,
+            0
+        );
+
+    cartCount.textContent =
+        count;
+
+    cartTotal.textContent =
+        money(
+            getCartTotal()
+        );
+
+    updateChange();
+}
+
+function escapeKey(key){
+
+    return key
+        .replace(/\\/g,"\\\\")
+        .replace(/'/g,"\\'");
+}
+
+/* =========================================================
+   CHANGE CALCULATOR
+   ========================================================= */
+
+function updateChange(){
+
+    const total =
+        getCartTotal();
+
+    const cash =
+        parseFloat(
+            cashReceivedInput.value
+        ) || 0;
+
+    const change =
+        cash - total;
+
+    if(change >= 0){
+
+        changeAmount.textContent =
+            money(change);
+
+        changeAmount.style.color =
+            "#e4b979";
+
+        cashWarning.classList.remove(
+            "show"
+        );
+
+    }else{
+
+        changeAmount.textContent =
+            money(0);
+
+        changeAmount.style.color =
+            "#df806c";
+
+        if(cash > 0){
+
+            cashWarning.classList.add(
+                "show"
+            );
+
+        }else{
+
+            cashWarning.classList.remove(
+                "show"
+            );
+        }
+    }
+}
+
+/* =========================================================
+   PLACE ORDER
+   ========================================================= */
+
+function placeOrder(){
+
+    const items =
+        getCartItems();
+
+    if(!items.length){
+
+        showToast(
+            "Please add a drink first."
+        );
+
+        return;
+    }
+
+    const customerName =
+        customerNameInput.value.trim();
+
+    if(!customerName){
+
+        showToast(
+            "Please enter customer name."
+        );
+
+        customerNameInput.focus();
+
+        return;
+    }
+
+    const total =
+        getCartTotal();
+
+    const cash =
+        parseFloat(
+            cashReceivedInput.value
+        );
+
+    if(
+        !Number.isFinite(cash) ||
+        cash < total
+    ){
+
+        cashWarning.classList.add(
+            "show"
+        );
+
+        showToast(
+            "Kulang ang cash ng customer."
+        );
+
+        cashReceivedInput.focus();
+
+        return;
+    }
+
+    const change =
+        cash - total;
+
+    const now =
+        new Date();
+
+    const order = {
+
+        customerName,
+
+        date:
+            now.toLocaleDateString(
+                "en-PH",
+                {
+                    year:"numeric",
+                    month:"long",
+                    day:"numeric"
+                }
+            ),
+
+        time:
+            now.toLocaleTimeString(
+                "en-PH",
+                {
+                    hour:"2-digit",
+                    minute:"2-digit"
+                }
+            ),
+
+        items:
+            items.map(item => ({
+
+                name:item.name,
+
+                category:item.category,
+
+                size:item.size,
+
+                price:item.price,
+
+                qty:item.qty
+
+            })),
+
+        total,
+
+        cashReceived:cash,
+
+        change
+
+    };
+
+    orders.unshift(order);
+
+    localStorage.setItem(
+        "dylicious_orders",
+        JSON.stringify(orders)
+    );
+
+    showReceipt(order);
+
+    cart = {};
+
+    renderCart();
+
+    customerNameInput.value = "";
+
+    cashReceivedInput.value = "";
+
+    changeAmount.textContent =
+        money(0);
+
+    cashWarning.classList.remove(
+        "show"
+    );
+}
+
+/* =========================================================
+   RECEIPT
+   ========================================================= */
+
+function showReceipt(order){
+
+    const rows =
+        order.items.map(item => `
+
+            <div class="receipt-line">
+
+                <div>
+
+                    <strong>
+                        ${item.name}
+                    </strong>
+
+                    <br>
+
+                    <small>
+                        ${item.category}
+                        • Size ${item.size}
+                        • ${item.qty} ×
+                        ${money(item.price)}
+                    </small>
+
+                </div>
+
+                <strong>
+                    ${money(
+                        item.price *
+                        item.qty
+                    )}
+                </strong>
+
+            </div>
+
+        `).join("");
+
+    document
+    .getElementById("receiptContent")
+    .innerHTML = `
+
+        <div class="receipt">
+
+            <h2>
+                Dylicious Brew
+            </h2>
+
+            <div class="shop">
+                Where Coffee Matters
+            </div>
+
+            <div class="customer-box">
+
+                <strong>
+                    Customer:
+                </strong>
+
+                ${escapeHtml(
+                    order.customerName
+                )}
+
+            </div>
+
+            ${rows}
+
+            <div class="receipt-total">
+
+                <span>
+                    TOTAL
+                </span>
+
+                <span>
+                    ${money(order.total)}
+                </span>
+
+            </div>
+
+            <div class="receipt-payment">
+
+                <div>
+
+                    <span>
+                        Cash Received
+                    </span>
+
+                    <strong>
+                        ${money(
+                            order.cashReceived
+                        )}
+                    </strong>
+
+                </div>
+
+                <div class="receipt-change">
+
+                    <span>
+                        CHANGE
+                    </span>
+
+                    <strong>
+                        ${money(
+                            order.change
+                        )}
+                    </strong>
+
+                </div>
+
+            </div>
+
+            <div
+                style="
+                    text-align:center;
+                    margin-top:18px;
+                    color:#735132;
+                    font-size:13px;
+                "
+            >
+                Thank you for ordering! ☕
+            </div>
+
+        </div>
+
+        <div class="receipt-actions">
+
+            <button
+                class="print-btn"
+                onclick="window.print()"
+            >
+                🖨 Print Receipt
+            </button>
+
+            <button
+                class="done-btn"
+                onclick="closeReceipt()"
+            >
+                Done
+            </button>
+
+        </div>
+
+    `;
+
+    closeCart();
+
+    receiptModal.classList.add(
+        "open"
+    );
+}
+
+/* =========================================================
+   ESCAPE HTML
+   ========================================================= */
+
+function escapeHtml(value){
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+/* =========================================================
+   SALES DASHBOARD
+   ========================================================= */
+
+function openAdmin(){
+
+    renderAdmin();
+
+    adminModal.classList.add(
+        "open"
+    );
+}
+
+function renderAdmin(){
+
+    const totalOrders =
+        orders.length;
+
+    const totalSales =
+        orders.reduce(
+            (sum,order) =>
+                sum + order.total,
+            0
+        );
+
+    const itemsSold =
+        orders.reduce(
+            (sum,order) =>
+
+                sum +
+
+                order.items.reduce(
+                    (a,item) =>
+                        a + item.qty,
+                    0
+                ),
+
+            0
+        );
+
+    document
+    .getElementById("totalOrders")
+    .textContent =
+        totalOrders;
+
+    document
+    .getElementById("totalSales")
+    .textContent =
+        money(totalSales);
+
+    document
+    .getElementById("itemsSold")
+    .textContent =
+        itemsSold;
+
+    const ordersList =
+        document.getElementById(
+            "ordersList"
+        );
+
+    if(!orders.length){
+
+        ordersList.innerHTML = `
+
+            <div class="empty">
+                No sales recorded yet.
+            </div>
+
+        `;
+
+        return;
+    }
+
+    ordersList.innerHTML =
+        orders.map(order => `
+
+            <div class="order-card">
+
+                <div class="order-head">
+
+                    <span>
+                        ${order.date}
+                    </span>
+
+                    <span>
+                        ${order.time}
+                    </span>
+
+                </div>
+
+                <div class="customer-admin">
+
+                    👤
+                    <strong>
+                        Customer:
+                    </strong>
+
+                    ${escapeHtml(
+                        order.customerName ||
+                        "Walk-in Customer"
+                    )}
+
+                </div>
+
+                ${order.items.map(item => `
+
+                    <div class="order-item">
+
+                        <span>
+
+                            ${item.qty}×
+                            ${item.name}
+                            (${item.size})
+
+                        </span>
+
+                        <span>
+
+                            ${money(
+                                item.price *
+                                item.qty
+                            )}
+
+                        </span>
+
+                    </div>
+
+                `).join("")}
+
+                <div class="order-total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <span>
+                        ${money(
+                            order.total
+                        )}
+                    </span>
+
+                </div>
+
+                <div class="payment-admin">
+
+                    <div>
+
+                        <span>
+                            Cash Received
+                        </span>
+
+                        <strong>
+                            ${money(
+                                order.cashReceived ||
+                                0
+                            )}
+                        </strong>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Change
+                        </span>
+
+                        <strong>
+                            ${money(
+                                order.change ||
+                                0
+                            )}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `).join("");
+}
+
+/* =========================================================
+   CLEAR SALES
+   ========================================================= */
+
+function clearSales(){
+
+    if(!orders.length){
+
+        showToast(
+            "There are no sales to clear."
+        );
+
+        return;
+    }
+
+    const confirmed =
+        confirm(
+            "Delete ALL sales history? This cannot be undone."
+        );
+
+    if(!confirmed) return;
+
+    orders = [];
+
+    localStorage.removeItem(
+        "dylicious_orders"
+    );
+
+    renderAdmin();
+
+    showToast(
+        "Sales history cleared."
+    );
+}
+
+/* =========================================================
+   MODALS
+   ========================================================= */
+
+function openCart(){
+
+    renderCart();
+
+    cartModal.classList.add(
+        "open"
+    );
+}
+
+function closeCart(){
+
+    cartModal.classList.remove(
+        "open"
+    );
+}
+
+function closeReceipt(){
+
+    receiptModal.classList.remove(
+        "open"
+    );
+}
+
+/* =========================================================
+   EVENTS
+   ========================================================= */
+
+document
+.getElementById("cartButton")
+.addEventListener(
+    "click",
+    openCart
+);
+
+document
+.getElementById("closeCart")
+.addEventListener(
+    "click",
+    closeCart
+);
+
+document
+.getElementById("placeOrder")
+.addEventListener(
+    "click",
+    placeOrder
+);
+
+document
+.getElementById("closeReceipt")
+.addEventListener(
+    "click",
+    closeReceipt
+);
+
+document
+.getElementById("closeAdmin")
+.addEventListener(
+    "click",
+    () => {
+
+        adminModal.classList.remove(
+            "open"
+        );
+
+    }
+);
+
+document
+.getElementById("clearSales")
+.addEventListener(
+    "click",
+    clearSales
+);
+
+searchInput
+.addEventListener(
+    "input",
+    renderMenu
+);
+
+categoryFilter
+.addEventListener(
+    "change",
+    renderMenu
+);
+
+cashReceivedInput
+.addEventListener(
+    "input",
+    updateChange
+);
+
+/* ================= MODAL OUTSIDE CLICK ================= */
+
+[
+    cartModal,
+    receiptModal,
+    adminModal
+]
+.forEach(modal => {
+
+    modal.addEventListener(
+        "click",
+        event => {
+
+            if(
+                event.target === modal
+            ){
+
+                modal.classList.remove(
+                    "open"
+                );
+
+            }
+
+        }
+    );
+
+});
+
+/* =========================================================
+   ADMIN ACCESS
+   =========================================================
+
+   COMPUTER:
+   CTRL + SHIFT + A
+
+   PHONE:
+   TAP LOGO 5 TIMES
+   ========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if(
+            event.ctrlKey &&
+            event.shiftKey &&
+            event.key.toLowerCase() === "a"
+        ){
+
+            openAdmin();
+
+        }
+
+    }
+);
+
+let logoClicks = 0;
+let logoTimer;
+
+document
+.querySelector(".logo")
+.addEventListener(
+    "click",
+    () => {
+
+        logoClicks++;
+
+        clearTimeout(
+            logoTimer
+        );
+
+        logoTimer =
+            setTimeout(
+                () => {
+
+                    logoClicks = 0;
+
+                },
+                1500
+            );
+
+        if(
+            logoClicks >= 5
+        ){
+
+            logoClicks = 0;
+
+            openAdmin();
+
+        }
+
+    }
+);
+
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
+
+renderMenu();
+
+renderCart();
+
+</script>
+
+</body>
+</html>
